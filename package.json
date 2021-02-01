@@ -1,0 +1,24 @@
+{
+  "name": "aie",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000S\u0000e\u0000r\u0000v\u0000i\u0000c\u0000i\u0000o\u0000-\u0000R\u0000e\u0000s\u0000t\u0000-\u0000I\u0000n\u0000f\u0000i\u0000t\u0000n\u0000y\u0000-\u0000P\u0000l\u0000u\u0000s\u0000\r\u0000 \u0000",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.11",
+    "mongoose-unique-validator": "^2.0.3",
+    "node-datetime": "^2.1.2",
+    "package.json": "^2.0.1",
+    "underscore": "^1.12.0"
+  }
+}
