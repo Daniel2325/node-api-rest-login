@@ -5,7 +5,12 @@ Ruta para autenticarse y acceder a los servicios de la API REST
 * Ruta: http://localhost:3000/login
 })
 
----------------------- LOGIN / AUTENTICACION DEL USUARIO ADMIN ------------------
+Ejecucion de la aplicacion en Heroku
+Ruta para autenticarse:
+* https://ddominguez-infitiny-plus-login.herokuapp.com/login
+
+__________________________________ LOGIN / AUTENTICACION DEL USUARIO ADMIN __________________________________
+
 La api cuenta con diferentes peticiones, para poder hacer uso de las mismas se debera autenticar al usuario, y solo aquel con el rol de: ADMIN _ROLE podra acceder a los peticiones, la peticion configurada para este proposito es POST, y el usuario obtendra mediante una peticion una respuesta, de no ser un usuario registrado se notificara al usuario del error encerrando en parentesis al usuario o contrasenia que no coincidan o si no existe el registro.
 
 Metodo POST Login
@@ -56,7 +61,8 @@ Metodo POST Login
 });
 
 
--------------------- Registro de Usuario ---------------
+_________________________________________ Registro de Usuario __________________________________
+
 Para registrar diferentes usuarios se configuro una petidcion post ademas de la anterior, en la cual especificamos los campos necesarios que debe tener cada usuario y tomando en cuenta que la autenticacion esta implementada en una api rest de infinity plus, que se encarga de registrar cuando se presiona el boton de cada una de sus cajas, sera necesario añadir dichios campos, de no ser necesario deberan ser eliminados.
 
     app.post('/caja',[verificaToken, verificaAdminRole], function(req, res) {
@@ -129,9 +135,10 @@ Para obtener los registros de la base de datos, para lo cual se establecio una p
                 })
             })
         })
-})
+    })
 
---------- Eliminar Registro ---------
+__________________________________ Eliminar Registro __________________________________
+
 Para poder eliminar una caja o usuario registrado se utilizo una peticion delete, que ademas de funcionar solo si el usuario fue autenticado, sera necesario conocer el id del registro o usuario que se desea eliminar de la base de datos, la sintaxis para eliminar el registro es la siguiente:
 
 `localhost:3000/usuario/78532186218`
