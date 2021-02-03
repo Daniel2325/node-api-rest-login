@@ -59,7 +59,7 @@ app.post('/login', (req, res) => {
 -------------------- Registro de Usuario ---------------
 Para registrar diferentes usuarios se configuro una petidcion post ademas de la anterior, en la cual especificamos los campos necesarios que debe tener cada usuario y tomando en cuenta que la autenticacion esta implementada en una api rest de infinity plus, que se encarga de registrar cuando se presiona el boton de cada una de sus cajas, sera necesario añadir dichios campos, de no ser necesario deberan ser eliminados.
 
-app.post('/caja',[verificaToken, verificaAdminRole], function(req, res) {
+    app.post('/caja',[verificaToken, verificaAdminRole], function(req, res) {
     let body = req.body;
     let dt = dateTime.create();
     let date = new Date()
@@ -96,3 +96,37 @@ app.post('/caja',[verificaToken, verificaAdminRole], function(req, res) {
 
     })
 })
+
+---------------- PETICION GET DE REGISTROS ----------------
+Para obtener los registros de la base de datos, para lo cual se establecio una peticion GET que solo funcionara si previamente el usuario fue autenticado.
+    app.get('/caja',[verificaToken, verificaAdminRole], function(req, res) {
+    let desde = req.query.desde || 0;
+    desde = Number(desde);
+
+    let hasta = req.query.hasta || 5;
+    hasta = Number(hasta);
+    
+    
+    let caja = req.body.informacion || '';
+
+    Datos.find({}, 'caja fecha hora')
+        .skip(desde)
+        .limit(hasta)
+        .exec((err, cajas) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err,
+                })
+            }
+
+            Datos.countDocuments({}, (err, conteo) => {
+                res.json({
+                    ok: true,
+                    registros: conteo,
+                    cajas
+                })
+            })
+        })
+})
+
