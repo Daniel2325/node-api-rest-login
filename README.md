@@ -174,4 +174,4 @@ ______________________ Ejecucion en Postman ______________________
 
 * Autenticacion:
 
-![Figura 1](/imagenes_prueba/step2.jpg)
+![Figura 1](/imagenes_prueba/img_1.jpg)
