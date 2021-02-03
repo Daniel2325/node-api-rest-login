@@ -10,7 +10,7 @@ La api cuenta con diferentes peticiones, para poder hacer uso de las mismas se d
 
 Metodo POST Login
 
-app.post('/login', (req, res) => {
+    app.post('/login', (req, res) => {
 
     let body = req.body;
 
@@ -99,6 +99,7 @@ Para registrar diferentes usuarios se configuro una petidcion post ademas de la 
 
 ---------------- PETICION GET DE REGISTROS ----------------
 Para obtener los registros de la base de datos, para lo cual se establecio una peticion GET que solo funcionara si previamente el usuario fue autenticado.
+
     app.get('/caja',[verificaToken, verificaAdminRole], function(req, res) {
     let desde = req.query.desde || 0;
     desde = Number(desde);
@@ -130,3 +131,34 @@ Para obtener los registros de la base de datos, para lo cual se establecio una p
         })
 })
 
+--------- Eliminar Registro ---------
+Para poder eliminar una caja o usuario registrado se utilizo una peticion delete, que ademas de funcionar solo si el usuario fue autenticado, sera necesario conocer el id del registro o usuario que se desea eliminar de la base de datos, la sintaxis para eliminar el registro es la siguiente:
+
+`localhost:3000/usuario/78532186218`
+
+Si el registro se eliminar de manera correcta se indicara al usuario, caso contraria notificara del error.
+
+    app.delete('/caja/:id', [verificaToken, verificaAdminRole],function(req, res) {
+    let id = req.params.id;
+
+    Datos.findByIdAndDelete(id, (err, regCajaEliminado) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            })
+        }
+        if (regCajaEliminado === null) {
+            return res.status(400).json({
+                ok: false,
+                error: {
+                    message: 'Este registro no existe'
+                }
+            })
+        }
+        res.json({
+            ok: true,
+            message: 'Registro eliminado correcto'
+        })
+    })
+})
