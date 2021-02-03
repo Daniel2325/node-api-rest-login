@@ -103,7 +103,7 @@ Para registrar diferentes usuarios se configuro una petidcion post ademas de la 
     })
 })
 
----------------- PETICION GET DE REGISTROS ----------------
+____________________________ PETICION GET DE REGISTROS __________________________________
 Para obtener los registros de la base de datos, para lo cual se establecio una peticion GET que solo funcionara si previamente el usuario fue autenticado.
 
     app.get('/caja',[verificaToken, verificaAdminRole], function(req, res) {
