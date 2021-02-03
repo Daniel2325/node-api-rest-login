@@ -167,5 +167,11 @@ Si el registro se eliminar de manera correcta se indicara al usuario, caso contr
             ok: true,
             message: 'Registro eliminado correcto'
         })
+    })  
     })
-})
+ 
+______________________ Ejecucion en Postman ______________________
+
+* Autenticacion:
+
+![Figura 1](imagenes_prueba/step2.jpg)
