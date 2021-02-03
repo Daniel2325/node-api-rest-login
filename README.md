@@ -175,3 +175,11 @@ ______________________ Ejecucion en Postman ______________________
 * Autenticacion:
 
 ![Figura 1](/imagenes_prueba/img_1.jpg)
+
+* Consulta Registros
+
+![Figura 2](/imagenes_prueba/img_2.jpg)
+
+* Registro
+
+![Figura 3](/imagenes_prueba/img_3.jpg)
